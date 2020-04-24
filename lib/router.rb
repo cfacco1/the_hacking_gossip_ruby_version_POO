@@ -1,5 +1,3 @@
-require 'controller'
-
 class Router
 
 #On veut qu'un "Router.new" lancé par app.rb, crée automatique une instance "@controller"
@@ -16,6 +14,8 @@ class Router
       #on affiche le menu
       puts "Tu veux faire quoi jeune mouss' ?"
       puts "1. Je veux créer un gossip"
+      puts "2. Afficher tous les gossip"
+      puts "3. Je veux supprimer un gossip"
       puts "4. Je veux quitter l'app"
       params = gets.chomp.to_i #on attend le choix de l'utilisateur
 
@@ -23,6 +23,14 @@ class Router
       when 1
         puts "Tu as choisi de créer un gossip" 
         @controller.create_gossip
+
+      when 2
+        puts "Tu veux afficher tous les gossip"
+        @controller.index_gossip
+
+      when 3
+        puts "Tu veux supprimer un gossip"
+        @controller.delete_gossip
 
       when 4
         puts "À bientôt !"

@@ -1,9 +1,3 @@
-require 'bundler'
-Bundler.require
-
-require 'model'
-require 'view'
-
 class Controller
 	attr_reader :gossip
 
@@ -16,4 +10,8 @@ class Controller
  		gossip = Gossip.new(params[:content], params[:author])
     	gossip.save	
     end
+
+    def index_gossip
+		@view.index_gossip(Gossip.all)
+	end
 end
